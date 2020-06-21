@@ -41,17 +41,19 @@ class User extends Authenticatable
         'type' => "user",
     ];
 
-    public function posts(){
-    return $this->hasMany("App\Post", "author_id");
-}
-
-    public function comments(){
-        return $this->hasMany("App\PostComment", "author_id");
-
+    public function isAdmin() {
+        return $this->type === "admin";
     }
 
-    public function likes(){
-        return $this->hasMany("App\PostLike", "liker_id");
+    public function posts() {
+        return $this->hasMany("App\Post", "author_id");
+    }
 
+    public function comments() {
+        return $this->hasMany("App\PostComment", "author_id");
+    }
+
+    public function likes() {
+        return $this->hasMany("App\PostLike", "liker_id");
     }
 }
