@@ -24,7 +24,7 @@
         <div class="d-flex flex-row h-100">
             <x-admin.sidebar />
 
-            <main>
+            <main style="flex: 1;">
                 @yield('content')
             </main>
         </div>

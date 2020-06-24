@@ -22,7 +22,7 @@ Route::view('/discover', 'discover')->name('discover');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::view('dashboard', 'admin.dashboard')->name('admin.dashboard');
-    Route::view('users', 'admin.users')->name('admin.users');
+    Route::get('users', 'UserController@index')->name('admin.users');
 });
