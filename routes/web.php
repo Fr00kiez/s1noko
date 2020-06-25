@@ -18,11 +18,10 @@ Auth::routes();
 
 Route::view('/', 'index')->name('index');
 Route::view('/discover', 'discover')->name('discover');
-// Route::view();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('admin')->namespace('Admin')->group(function () {
-    Route::view('dashboard', 'admin.dashboard')->name('admin.dashboard');
-    Route::get('users', 'UserController@index')->name('admin.users');
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::view('dashboard', 'admin.dashboard')->name('dashboard');
+    Route::resource('users', 'UserController');
 });

@@ -22,12 +22,14 @@
 <body class="h-100">
     <div class="h-100" id="app">
         <div class="d-flex flex-row h-100">
-            <x-admin.sidebar />
+            <x-admin.sidebar></x-admin.sidebar>
 
             <main style="flex: 1;">
                 @yield('content')
             </main>
         </div>
     </div>
+
+    @stack('scripts')
 </body>
 </html>

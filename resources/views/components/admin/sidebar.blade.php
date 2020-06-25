@@ -7,7 +7,7 @@
 
     <div>
         @foreach($items as $item)
-        <a href="{{ route($item['name']) }}" class="mb-4 {{ request()->routeIs($item['name']) ? 'active': '' }}">
+        <a href="{{ route($item['name']) }}" class="mb-4 {{ request()->is($item['url']) ? 'active': '' }}">
             {!! $item['icon'] !!}
             <strong style="font-size: 10px;">{{ $item['title'] }}</strong>
         </a>

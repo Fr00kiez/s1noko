@@ -1,3 +1,49 @@
+#admin-sidebar {
+    a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        color: #939597;
+        svg {
+            fill: #939597;
+        }
+
+        &:hover:not(.active) {
+            color: #DDD;
+            svg {
+                fill: #DDD;
+            }
+        }
+
+        &.active {
+            color: #FFF;
+            svg {
+                fill: #FFF;
+            }
+        }
+    }
+}
+
+.overview-cards {
+    display: flex;
+
+    .overview-card-wrapper {
+        padding: 1.75rem 0;
+        flex: 1;
+
+        .overview-card-item {
+            padding: 0 2.25rem;
+            letter-spacing: -.25px;
+        }
+
+        &:not(:last-child) .overview-card-item {
+            border-right: 1px solid #ddd;
+        }
+    }
+}
+
 .crud-table {
     table.table {
         width: 100%;
@@ -8,6 +54,10 @@
             font-weight: 800;
             padding: 1.25rem 0.75rem;
             color: #7a7a7a;
+        }
+
+        th, td {
+            vertical-align: middle;
         }
     }
 }
