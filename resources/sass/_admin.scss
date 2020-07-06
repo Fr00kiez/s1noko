@@ -7,20 +7,20 @@
 
         color: #939597;
         svg {
-            fill: #939597;
+            color: #939597;
         }
 
         &:hover:not(.active) {
             color: #DDD;
             svg {
-                fill: #DDD;
+                color: #DDD;
             }
         }
 
         &.active {
             color: #FFF;
             svg {
-                fill: #FFF;
+                color: #FFF;
             }
         }
     }
@@ -45,19 +45,45 @@
 }
 
 .crud-table {
-    table.table {
-        width: 100%;
+    table {
+        &.table {
+            width: 100%;
 
-        th {
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            font-weight: 800;
-            padding: 1.25rem 0.75rem;
-            color: #7a7a7a;
+            th {
+                text-transform: uppercase;
+                font-size: 0.85rem;
+                font-weight: 800;
+                padding: 1.25rem 0.75rem;
+                color: #7a7a7a;
+            }
+
+            th, td {
+                vertical-align: middle;
+            }
         }
 
-        th, td {
-            vertical-align: middle;
+        &.dataTable {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+    }
+
+    .dataTables_wrapper {
+        .dataTables_filter {
+            label {
+                margin-bottom: 0;
+            }
+
+            .form-control-sm {
+                background-color: #f8fafb;
+                height: auto;
+                font-size: 1rem;
+                margin: 0;
+            }
+        }
+
+        .dataTables_info {
+            padding-top: 0;
         }
     }
 }

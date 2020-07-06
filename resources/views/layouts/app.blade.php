@@ -9,25 +9,38 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @stack('styles')
 </head>
 <body>
     <div id="app">
-        <x-app.navbar />
+        <x-app.navbar></x-app.navbar>
 
         <main>
             @yield('content')
         </main>
 
-        <x-app.footer />
+        <x-app.footer></x-app.footer>
     </div>
+
+    <!-- Modals -->
+    @auth
+        <x-create-post-modal></x-create-post-modal>
+    @else
+        <x-modals.ask-to-login></x-modals.ask-to-login>
+    @endauth
+
+    @stack('modals')
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    @stack('scripts')
 </body>
 </html>

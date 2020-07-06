@@ -16,12 +16,22 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::view('/', 'index')->name('index');
-Route::view('/discover', 'discover')->name('discover');
+Route::get('/', 'HomeController@index')->name('index');
+Route::get('/favorites', 'HomeController@favorites')->name('favorites');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@home')->name('home');
+
+//POSTINGAN
+
+Route::resource('posts', 'PostController')->only(['show', 'store', 'update', 'destroy']);
+Route::prefix('posts')->name('posts.')->group(function () {
+    Route::post('/{post}/like', 'PostController@like')->name('like');
+    Route::post('/{post}/unlike', 'PostController@unlike')->name('unlike');
+    Route::post('/{post}/comment', 'PostController@comment')->name('comment');
+});
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::view('dashboard', 'admin.dashboard')->name('dashboard');
     Route::resource('users', 'UserController');
+    Route::resource('posts', 'PostController');
 });

@@ -6,11 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class PostLike extends Model
 {
-    public function liker(){
+    protected $fillable = ['post_id', 'liker_id'];
+
+    public function liker()
+    {
         return $this->belongsTo("App\User", "liker_id");
     }
 
-    public function post(){
+    public function post()
+    {
         return $this->belongsTo("App\Post");
     }
 }
